@@ -5,6 +5,7 @@ object map {
   def main(args: Array[String]): Unit = {
     val numbers = List(1, 2, 3, 4)
     numbers.map((i: Int) => print(i))
+    println()
     val b = numbers.map((i: Int) => i * 2)
     println(b)
 

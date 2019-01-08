@@ -24,7 +24,20 @@ object ArrayTest {
   따라서 빠른 임의 액세스가 필요하거나 요소를 계산해야하는 경우가 아니라면 List 가 Array 보다 낫습니다.
   ***/
   def main(args: Array[String]): Unit = {
-    println("ArrayTest")
+    val str = "3.5.3/30503 ios/12.1.2"
+    val arr = str.split(" ")
+    val m1 = arr.map(_.split("/"))
+    val f1 = m1.flatten
+    println(m1.length)
+    println(m1(0)(1))
+    println(m1(1)(0))
+
+    val ss = Some("1")
+
+    val testArr =  ss.flatMap(s => fromString(s))
+    println(testArr)
+
+
 
     val myList0 = (1.9, 2.9, 3.4, 3.5)
     println(myList0._1)
@@ -74,4 +87,13 @@ object ArrayTest {
     println(Step1.foreach(f => print(" " + f.toString)))
     println(Step2.foreach(f => print(" " + f)))
   }
+
+  def fromString(str: String) = {
+    str match {
+      case "1" =>  Some("ABC")
+      case _ => None
+    }
+
+  }
 }
+
