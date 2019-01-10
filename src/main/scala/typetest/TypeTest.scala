@@ -6,7 +6,9 @@ object TypeTest {
   implicit def strToInt(x: String) = x.toInt
 
   def main(args: Array[String]): Unit = {
-    println("Type Test")
+    foo(List("one", "two")) // Hey, this list is full of strings
+    foo(List(1, 2)) // Non-stringy list
+    foo(List("one", 2)) // Non-stringy list
 
     val y: Int = "123"
     val wmax = math.max("123", 111)
@@ -26,8 +28,38 @@ object TypeTest {
     //T type을 animal하위타입으로 지정해서 sound를 가져올수 있게 한다.
     def biophony[T <: Animal](things: Seq[T]) = things map (_.sound)
     println(biophony(Seq(new Chicken, new Bird)))
+
+    println(meth(List("string")))
+    println(meth(List(new Bar)))
+  }
+
+  //아래와 같음
+//  def foo[T](x: List[T])(implicit m: Manifest[T]) = {
+//    if (m <:< manifest[String])
+//      println("Hey, this list is full of strings")
+//    else
+//      println("Non-stringy list")
+//  }
+  def foo[T: Manifest](x: List[T]) = {
+    if (manifest[T] <:< manifest[String])
+      println("Hey, this list is full of strings")
+    else
+      println("Non-stringy list")
+  }
+
+//  def meth[A](xs: List[A]) = xs match {
+//    case _: List[String] => "list of strings"
+//    case _: List[Foo] => "list of foos"
+//  }
+  import scala.reflect.runtime.universe._
+  def meth[A : TypeTag](xs: List[A]) = typeOf[A] match {
+    case t if t =:= typeOf[String] => "list of strings"
+    case t if t <:< typeOf[Foo] => "list of foos"
   }
 }
+
+class Foo
+class Bar extends Foo
 
 class Animal { val sound = "rustle" }
 class Bird extends Animal { override val sound = "puuk" }

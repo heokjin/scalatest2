@@ -4,6 +4,8 @@ object Strings {
   def main(args: Array[String]): Unit = {
     println("Strings test")
 
+    println("123".toLong%10)
+
     val str1 = "Heokjin"
     println(str1.length)
     println(str1.concat(" Hello!"))
