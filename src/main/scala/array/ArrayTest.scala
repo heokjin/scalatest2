@@ -1,5 +1,7 @@
 package array
 
+import com.twitter.util.Future
+
 import Array._
 
 object ArrayTest {
@@ -37,7 +39,12 @@ object ArrayTest {
     val testArr =  ss.flatMap(s => fromString(s))
     println(testArr)
 
-
+    val myList01 = Array[String]()
+    myList01 match {
+      case Array(first, _*) => println("First => " + first)
+      case _ => println("@@@")
+      case Array() => println("!!!")
+    }
 
     val myList0 = (1.9, 2.9, 3.4, 3.5)
     println(myList0._1)
@@ -86,6 +93,15 @@ object ArrayTest {
     val Step2 = range(10,20)
     println(Step1.foreach(f => print(" " + f.toString)))
     println(Step2.foreach(f => print(" " + f)))
+
+    val gate = Array[Double]()
+    gate match {
+      case Array(x, y) => println("AA")
+      case null => println("BB")
+      case _ => println("DD") //이거라도 있어야 에러가 안남
+//      case Array() => println("CC") //이 라인이 없으면 match에러가 난다.
+    }
+
   }
 
   def fromString(str: String) = {

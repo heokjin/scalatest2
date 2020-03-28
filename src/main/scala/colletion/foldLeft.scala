@@ -8,6 +8,7 @@ object foldLeft {
     val a = numbers.foldLeft(0)((m:Int, i:Int) => m+i)
     println(a)
 
-    numbers.foldLeft(0) { (m: Int, n: Int) => println("m: " + m + " n: " + n); m + n }
+    val aa = numbers.foldLeft(0) { (m: Int, n: Int) => println("m: " + m + ", n: " + n); m + n }
+    println(aa)
   }
 }
