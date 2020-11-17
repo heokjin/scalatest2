@@ -8,6 +8,7 @@ object zipped {
 
     var resultList = List[String]()
     (arr1, arr2).zipped.foreach((x,y) => {
+      println(x, y)
       val resultString = makeSecurityMap(Integer.toBinaryString(x|y))
       resultList = resultString :: resultList
     })

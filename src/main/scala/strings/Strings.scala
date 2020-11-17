@@ -2,6 +2,14 @@ package strings
 
 object Strings {
   def main(args: Array[String]): Unit = {
+    val s1: String = "1.0.11"
+    val s2: String = "4.1.211"
+    if(s1 > s2) {
+      println("A")
+    } else {
+      println("B")
+    }
+
     println("Strings test")
 
     println("123".toLong%10)

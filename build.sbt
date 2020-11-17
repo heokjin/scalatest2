@@ -25,8 +25,9 @@ libraryDependencies += "commons-codec" % "commons-codec" % "1.11"
 libraryDependencies += "org.apache.commons" % "commons-lang3" % "3.3.2"
 libraryDependencies += "commons-codec" % "commons-codec" % "1.11"
 libraryDependencies += "joda-time" % "joda-time" % "2.9.4"
-libraryDependencies += "com.twitter" %% "finatra-http" % versions.finagle,
-libraryDependencies += "com.twitter" %% "finatra-httpclient" % versions.finagle,
+libraryDependencies += "com.twitter" %% "finatra-http" % versions.finagle
+libraryDependencies += "com.twitter" %% "finatra-httpclient" % versions.finagle
+libraryDependencies += "org.json4s" %% "json4s-native" % "3.6.9"
 
 
 

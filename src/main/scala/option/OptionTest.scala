@@ -4,7 +4,6 @@ import scala.util.{Failure, Success, Try}
 
 object OptionTest {
   def main(args: Array[String]): Unit = {
-    println(("OptionTest"))
     val capitals = Map("korea" -> "seoul", "japan"->"tokyo", "france"->"paris")
 
     println(capitals.get("korea"))
@@ -16,6 +15,8 @@ object OptionTest {
     val a:Option[Int] = Some(5)
     val b:Option[Int] = None
     val c:Option[String] = appName
+    val d:Option[Long] = Some(111L)
+    println(d.isDefined)
     println(a.getOrElse(0))
     println(b.getOrElse(0))
     println(a)

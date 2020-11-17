@@ -1,9 +1,25 @@
 package regularexpression
 
+import com.twitter.util.Future
+
 import scala.util.matching.Regex
 
 object RegularExpressionTest {
+  lazy val kaccountKey: String = "abc"
+
   def main(args: Array[String]): Unit = {
+    val pattern1 = "KakaoAK ([a-z0-9]+)".r
+
+    val authorization = "KakaoAK abc"
+    authorization match {
+      case pattern1(key) => { //()안의 그룹이 key로 가는군..
+        if (key == kaccountKey)
+          println(key, "A1")
+      }
+      case a => println(a, "B1")
+    }
+
+
     println("RegularExpression Test")
     val pattern = "Scala".r
     val str = "The Scala is Scalable and Cool."

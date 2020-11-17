@@ -1,5 +1,7 @@
 object HelloWorld {
   def main(args: Array[String]) {
+    val longA = 1L
+    if (longA > 0) println("P") else println("N")
 
     var myVar : Int = 10;
     val myVal : String = "Hello Scala"
